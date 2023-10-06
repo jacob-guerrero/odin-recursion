@@ -25,3 +25,20 @@ function fibs(num) {
 }
 
 console.log(fibs(0), fibs(1), fibs(2), fibs(3), fibs(8));
+
+function fibsRec(num, arr = [0, 1]) {
+  if (num <= 0) {
+    return [];
+  } else if (num === 1) {
+    return [0];
+  } else if (arr.length === num) {
+    return arr;
+  }
+
+  const out = arr[arr.length - 1] + arr[arr.length - 2];
+  arr.push(out);
+
+  return fibsRec(num, arr);
+}
+
+console.log(fibsRec(0), fibsRec(1), fibsRec(2), fibsRec(3), fibsRec(8));
